@@ -26,11 +26,11 @@ module "aviatrix-controller-build2" {
   incoming_ssl_cidr = ["10.20.30.0/24","0.0.0.0/0"] /*review!!!!!!!!*/
 }
 
-provider "aviatrix2" {
+/*provider "aviatrix" {
   username      = "admin"
   password      = module.aviatrix-controller-build2.private_ip
   controller_ip = module.aviatrix-controller-build2.public_ip
-}
+}*/
 
 module "aviatrix-controller-initialize2" {
   source              = "github.com/AviatrixSystems/terraform-modules.git//aviatrix-controller-initialize?ref=master"

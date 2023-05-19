@@ -8,10 +8,15 @@ data "aws_eip" "controller_eip" {
   public_ip = "52.17.81.183"
 }
 
-resource "aws_eip_association" "eip_assoc" {
+/*resource "aws_eip_association" "eip_assoc" {
   count         = var.num_controllers
   instance_id   = aws_instance.aviatrixcontroller[count.index].id
   allocation_id = aws_eip.controller_eip[count.index].id
+}*/ # modificato in V
+
+resource "aws_eip_association" "eip_assoc" {
+  instance_id   = aws_instance.aviatrixcontroller.id
+  allocation_id = aws_eip.controller_eip.id
 }
 
 resource "aws_network_interface" "eni-controller" {

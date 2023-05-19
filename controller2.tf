@@ -1,21 +1,21 @@
-terraform {
+/*terraform {
   required_providers {
     aviatrix = {
       source = "aviatrixsystems/aviatrix"
     }  
   }  
-}  
+}*/  
 /*provider "aws" {
   region = var.aws_region
 }*/
 
-data "aws_caller_identity" "current" {}
+#data "aws_caller_identity" "current" {}
 
 /*module "aviatrix-iam-roles" {
   source = "github.com/AviatrixSystems/terraform-modules.git//aviatrix-controller-iam-roles?ref=master"
 }*/
 
-module "aviatrix-controller-build" {
+module "aviatrix-controller-build2" {
   source            = "git::https://github.com/domenicomarinoaviatrix/aws-cicd-pipeline.git//aviatrix-controller-build"
   vpc               = var.vpc_controller
   subnet            = var.subnet_controller

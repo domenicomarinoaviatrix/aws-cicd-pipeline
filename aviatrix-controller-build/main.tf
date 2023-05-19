@@ -15,8 +15,9 @@ data "aws_eip" "controller_eip" {
 }*/ # modificato in V
 
 resource "aws_eip_association" "eip_assoc" {
-  instance_id   = aws_instance.aviatrixcontroller.id
-  allocation_id = aws_eip.controller_eip.id
+  count         = var.num_controllers
+  instance_id   = aws_instance.aviatrixcontroller[count.index].id
+  allocation_id = data.aws_eip.controller_eip.id
 }
 
 resource "aws_network_interface" "eni-controller" {

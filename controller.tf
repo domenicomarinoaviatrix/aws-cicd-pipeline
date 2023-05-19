@@ -11,9 +11,14 @@ terraform {
 
 data "aws_caller_identity" "current" {}
 
-module "aviatrix-iam-roles" {
+/*module "aviatrix-iam-roles" {
   source = "github.com/AviatrixSystems/terraform-modules.git//aviatrix-controller-iam-roles?ref=master"
+}*/
+
+module "aviatrix-iam-roles" {
+  source = "git::https://github.com/domenicomarinoaviatrix/aws-cicd-pipeline.git//aviatrix-controller-iam-roles"
 }
+
 
 module "aviatrix-controller-build" {
   source            = "github.com/AviatrixSystems/terraform-modules.git//aviatrix-controller-build?ref=master"

@@ -1,7 +1,11 @@
-resource "aws_eip" "controller_eip" {
+/*resource "aws_eip" "controller_eip" {
   count = var.num_controllers
   vpc   = true
   tags  = local.common_tags
+}*/
+
+data "aws_eip" "controller_eip" {
+  public_ip = "52.17.81.183"
 }
 
 resource "aws_eip_association" "eip_assoc" {

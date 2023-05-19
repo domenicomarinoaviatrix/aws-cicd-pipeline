@@ -26,34 +26,34 @@ module "aviatrix-controller-build2" {
   incoming_ssl_cidr = ["10.20.30.0/24","0.0.0.0/0"] /*review!!!!!!!!*/
 }
 
-provider "aviatrix" {
+provider "aviatrix2" {
   username      = "admin"
-  password      = module.aviatrix-controller-build.private_ip
-  controller_ip = module.aviatrix-controller-build.public_ip
+  password      = module.aviatrix-controller-build2.private_ip
+  controller_ip = module.aviatrix-controller-build2.public_ip
 }
 
-module "aviatrix-controller-initialize" {
+module "aviatrix-controller-initialize2" {
   source              = "github.com/AviatrixSystems/terraform-modules.git//aviatrix-controller-initialize?ref=master"
   admin_password      = var.controller_password
   admin_email         = "dmarino@aviatrix.com"
-  private_ip          = module.aviatrix-controller-build.private_ip
-  public_ip           = module.aviatrix-controller-build.public_ip
+  private_ip          = module.aviatrix-controller-build2.private_ip
+  public_ip           = module.aviatrix-controller-build2.public_ip
   access_account_name = var.account_name
   aws_account_id      = data.aws_caller_identity.current.account_id
-  vpc_id              = module.aviatrix-controller-build.vpc_id
-  subnet_id           = module.aviatrix-controller-build.subnet_id
+  vpc_id              = module.aviatrix-controller-build2.vpc_id
+  subnet_id           = module.aviatrix-controller-build2.subnet_id
   customer_license_id = var.customer_license_id
   controller_version  = var.controller_version
 }
 
-output "result" {
-  value = module.aviatrix-controller-initialize.result
+output "result2" {
+  value = module.aviatrix-controller-initialize2.result
 }
 
-output "controller_private_ip" {
-  value = module.aviatrix-controller-build.private_ip
+output "controller_private_ip2" {
+  value = module.aviatrix-controller-build2.private_ip
 }
 
-output "controller_public_ip" {
-  value = module.aviatrix-controller-build.public_ip
+output "controller_public_ip2" {
+  value = module.aviatrix-controller-build2.public_ip
 }

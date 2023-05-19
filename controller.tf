@@ -20,7 +20,7 @@ module "aviatrix-iam-roles" {
 }
 
 
-/*module "aviatrix-controller-build" {
+module "aviatrix-controller-build" {
   source            = "github.com/AviatrixSystems/terraform-modules.git//aviatrix-controller-build?ref=master"
   vpc               = var.vpc_controller
   subnet            = var.subnet_controller
@@ -60,4 +60,4 @@ output "controller_private_ip" {
 
 output "controller_public_ip" {
   value = module.aviatrix-controller-build.public_ip
-}*/
+}

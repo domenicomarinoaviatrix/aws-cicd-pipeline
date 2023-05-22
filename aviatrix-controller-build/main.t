@@ -5,7 +5,7 @@
 }*/
 
 data "aws_eip" "controller_eip" {
-  public_ip = "54.228.185.90"
+  public_ip = "18.203.91.19"
 }
 
 resource "aws_eip_association" "eip_assoc" {

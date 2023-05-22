@@ -1,4 +1,4 @@
-module "aviatrix-controller-build" {
+module "aviatrix-controller-build2" {
   source            = "git::https://github.com/domenicomarinoaviatrix/aws-cicd-pipeline.git//aviatrix-controller-build"
   vpc               = var.vpc_controller
   subnet            = var.subnet_controller

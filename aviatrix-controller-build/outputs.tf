@@ -19,7 +19,7 @@ output "subnet_id" {
 }
 
 output "security_group_id" {
-  value       = aws_security_group.AviatrixSecurityGroup.id
+  value       = data.aws_security_group.AviatrixSecurityGroup.id
   description = "Security group id used by Aviatrix controller"
 }
 

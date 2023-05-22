@@ -17,7 +17,7 @@ resource "aws_eip_association" "eip_assoc" {
 resource "aws_network_interface" "eni-controller" {
   count           = var.num_controllers
   subnet_id       = var.subnet
-  security_groups = [aws_security_group.AviatrixSecurityGroup.id]
+  security_groups = [data.aws_security_group.AviatrixSecurityGroup.id]
   tags = merge(local.common_tags, {
     Name = "${local.name_prefix}Aviatrix Controller interface : ${count.index}"
   })

@@ -4,7 +4,7 @@ output "private_ip" {
 }
 
 output "public_ip" {
-  value       = length(aws_eip.controller_eip) > 0 ? aws_eip.controller_eip.*.public_ip[0] : ""
+  value       = length(data.aws_eip.controller_eip) > 0 ? data.aws_eip.controller_eip.*.public_ip[0] : ""
   description = "Public IP for the first aviatrix conroller"
 }
 
@@ -33,6 +33,6 @@ output "private_ip_list" {
 }
 
 output "public_ip_list" {
-  value       = aws_eip.controller_eip.*.public_ip
+  value       = data.aws_eip.controller_eip.*.public_ip
   description = "List of Public IP addresses of all the Aviatrix controllers launched on the same VPC"
 }

@@ -4,14 +4,14 @@
   tags  = local.common_tags
 }*/
 
-data "aws_eip" "by_public_ip" {
-  public_ip = "1.2.3.4"
+data "aws_eip" "controller_eip" {
+  public_ip = "54.228.185.90"
 }
 
 resource "aws_eip_association" "eip_assoc" {
   count         = var.num_controllers
   instance_id   = aws_instance.aviatrixcontroller[count.index].id
-  allocation_id = aws_eip.controller_eip[count.index].id
+  allocation_id = data.aws_eip.controller_eip[count.index].id
 }
 
 resource "aws_network_interface" "eni-controller" {

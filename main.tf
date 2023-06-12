@@ -36,8 +36,8 @@ module "aviatrix-controller-build" {
   vpc     = var.vpc_id
   subnet  = var.subnet_id
   incoming_ssl_cidr = var.incoming_ssl_cidr_controller
-  type              = "BYOL"
-  controller_name   = "MeteredPlatinumCopilot"
+  type              = "MeteredPlatinumCopilot"
+  controller_name   = "avx-controller-eu"
   instance_type     = "t3.xlarge"
 }
 

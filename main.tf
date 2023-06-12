@@ -38,21 +38,21 @@ module "aviatrix-controller-build" {
   incoming_ssl_cidr = var.incoming_ssl_cidr_controller
   type              = "BYOL"
   controller_name   = "avx-controller-eu"
-  instance_type     = "t3.xlarge"
+  instance_type     = "t3.large"
 }
 
 # CoPilot
 ########################################################################
 
 # create eni
-resource "aws_network_interface" "eni-copilot" {
+/*resource "aws_network_interface" "eni-copilot" {
   subnet_id       = var.subnet_id
   #security_groups = [aws_security_group.AviatrixSecurityGroupCPLT.id]
   security_groups = concat([aws_security_group.AviatrixSecurityGroupCPLT.id],var.add_copilot_security_group_ids)
-}
+}*/
 
 # create instance
-resource "aws_instance" "aviatrixcopilot" {
+/*resource "aws_instance" "aviatrixcopilot" {
 
   ami           = "ami-0dcc06cc81c5168dc" ###it was: "ami-0863c862a9cefd8ae" # This is AMI in eu-central-1
   instance_type = "t3.2xlarge"            # 32GB RAM minimum
@@ -83,7 +83,7 @@ resource "aws_eip" "copilot_eip" {
 resource "aws_eip_association" "eip_assoc_cplt" {
   instance_id   = aws_instance.aviatrixcopilot.id
   allocation_id = aws_eip.copilot_eip.id
-}
+}*/
 
 
 # Export SSM Parameters

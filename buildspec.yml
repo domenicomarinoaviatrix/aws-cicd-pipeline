@@ -20,24 +20,7 @@ phases:
       # Initialize Terraform 
       - terraform init
 
-  build:
-    on-failure: ABORT
-    commands:
-      - echo $Phase
-      - |
-        if expr "${Phase}" : "PLAN" >/dev/null;
-        then
-          echo "Launching PLAN..."
-          terraform plan -no-color -out=tfplan;
-          ##terraform plan -destroy;
-        fi
-      - |
-        if expr "${Phase}" : "APPLY" >/dev/null;
-        then
-          echo "Building (APPLY)..."
-          terraform plan -no-color -out=tfplan && terraform apply -no-color -auto-approve=true tfplan;
-          ##terraform destroy -auto-approve=true;
-        fi
+ 
   post_build:
     on-failure: ABORT
     commands:

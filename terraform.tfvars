@@ -6,7 +6,7 @@ account_name = "arn:aws:secretsmanager:eu-west-1:134927448455:secret:account_nam
 
 
 ###Straumann
-
+root_volume_size = 64   #### added to overlap the module's root size 
 aws_controller_account = "134927448455"
 region = "eu-west-1"
 incoming_ssl_cidr_copilot = [

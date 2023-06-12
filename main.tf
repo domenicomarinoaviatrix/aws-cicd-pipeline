@@ -38,7 +38,7 @@ module "aviatrix-controller-build" {
   incoming_ssl_cidr = var.incoming_ssl_cidr_controller
   type              = "BYOL"
   controller_name   = "avx-controller-eu"
-  instance_type     = "t3.xlarge"
+  instance_type     = "t3.large"
 }
 
 # CoPilot

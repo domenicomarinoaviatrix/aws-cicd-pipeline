@@ -29,7 +29,7 @@ module "iam_roles" {
 ########################################################################
 
 # create controller
-module "aviatrix-controller-build" {
+/*module "aviatrix-controller-build" {
   source  = "github.com/AviatrixSystems/terraform-modules.git//aviatrix-controller-build"
   keypair = aws_key_pair.avx_key.key_name
   ec2role = module.iam_roles.aviatrix-role-ec2-name
@@ -39,7 +39,7 @@ module "aviatrix-controller-build" {
   type              = "BYOL"
   controller_name   = "avx-controller-eu"
   instance_type     = "t3.xlarge"
-}
+}*/
 
 # CoPilot
 ########################################################################

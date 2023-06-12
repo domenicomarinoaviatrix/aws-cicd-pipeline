@@ -30,7 +30,7 @@ module "iam_roles" {
 
 # create controller
 module "aviatrix-controller-build" {
-  source  = "github.com/AviatrixSystems/terraform-modules.git//aviatrix-controller-build?ref=terraform_0.14"
+  source  = "github.com/AviatrixSystems/terraform-modules.git"
   keypair = aws_key_pair.avx_key.key_name
   ec2role = module.iam_roles.aviatrix-role-ec2-name
   vpc     = var.vpc_id

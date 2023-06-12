@@ -30,15 +30,15 @@ module "iam_roles" {
 
 # create controller
 module "aviatrix-controller-build" {
-  source  = "github.com/AviatrixSystems/terraform-modules.git//aviatrix-controller-build"
+  source  = "github.com/AviatrixSystems/terraform-modules.git//aviatrix-controller-build?ref=terraform_0.14"
   keypair = aws_key_pair.avx_key.key_name
   ec2role = module.iam_roles.aviatrix-role-ec2-name
   vpc     = var.vpc_id
   subnet  = var.subnet_id
   incoming_ssl_cidr = var.incoming_ssl_cidr_controller
-  type              = "BYOL"
+  type              = "MeteredPlatinumCopilot"
   controller_name   = "avx-controller-eu"
-  instance_type     = "t3.large"
+  instance_type     = "t3.xlarge"
 }
 
 # CoPilot
